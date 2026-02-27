@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Swaras 2026 - Shrutii Nrityalaya</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  /* ── Global ── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #111; }
+
+  /* Each slide is exactly 1280×720, displayed as a scrollable page */
+  .slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    margin: 0 auto 32px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+  }
+
+  /* ── Shared colour tokens ── */
+  .font-playfair { font-family: 'Playfair Display', serif; }
+  .font-lato     { font-family: 'Lato', sans-serif; }
+  .text-gold     { color: #D4AF37; }
+  .bg-gold       { background-color: #D4AF37; }
+  .border-gold   { border-color: #D4AF37; }
+  .text-maroon   { color: #6B1C2B; }
+  .bg-maroon     { background-color: #6B1C2B; }
+  .bg-maroon-dark{ background-color: #2a080e; }
+  .text-ivory    { color: #FDF5E6; }
+  .bg-ivory      { background-color: #FDF5E6; }
+  .text-gold-bright { color: #FFD700; }
+
+  /* ── SLIDE 1 – Cover ── */
+  .s1-corner { position:absolute; width:80px; height:80px; border:4px solid #D4AF37; z-index:20; }
+  .s1-tl { top:30px; left:30px; border-right:none; border-bottom:none; }
+  .s1-tr { top:30px; right:30px; border-left:none; border-bottom:none; }
+  .s1-bl { bottom:30px; left:30px; border-right:none; border-top:none; }
+  .s1-br { bottom:30px; right:30px; border-left:none; border-top:none; }
+  .s1-mandala {
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:600px; height:600px;
+    border:1px solid rgba(212,175,55,.2); border-radius:50%; z-index:5;
+  }
+  .s1-mandala::before {
+    content:''; position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:500px; height:500px;
+    border:1px solid rgba(212,175,55,.15); border-radius:50%;
+  }
+
+  /* ── SLIDE 2 – About Founder ── */
+  .s2-image-frame { border-right:4px solid #D4AF37; position:relative; }
+  .s2-image-frame::after {
+    content:''; position:absolute; top:30px; right:-15px; bottom:30px;
+    width:4px; border-right:1px solid #D4AF37; opacity:.6;
+  }
+  .card-glass {
+    background:rgba(255,255,255,.03); backdrop-filter:blur(5px);
+    border:1px solid rgba(212,175,55,.2); box-shadow:0 4px 6px rgba(0,0,0,.2);
+  }
+
+  /* ── SLIDE 3 – Achievements ── */
+  .temple-card {
+    background:rgba(42,8,14,.7); border:1px solid rgba(212,175,55,.4);
+    position:relative; backdrop-filter:blur(8px);
+    transition:all .3s ease;
+  }
+  .temple-card::before {
+    content:''; position:absolute;
+    top:4px; left:4px; right:4px; bottom:4px;
+    border:1px solid rgba(212,175,55,.2); pointer-events:none;
+  }
+  .temple-card:hover { border-color:rgba(212,175,55,.8); transform:translateY(-2px); }
+  .c-tl { top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .c-tr { top:-1px; right:-1px; border-left:none; border-bottom:none; }
+  .c-bl { bottom:-1px; left:-1px; border-right:none; border-top:none; }
+  .c-br { bottom:-1px; right:-1px; border-left:none; border-top:none; }
+  .corner-ornament { position:absolute; width:10px; height:10px; border:2px solid #D4AF37; }
+  .list-icon-bullet { display:flex; align-items:flex-start; margin-bottom:.75rem; }
+  .list-icon-bullet i { color:#D4AF37; margin-top:.3rem; margin-right:.75rem; font-size:.7rem; }
+
+  /* ── SLIDE 4 – About Nrityalaya ── */
+  .mandala-bg {
+    background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23D4AF37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+  .glass-box {
+    background:rgba(255,255,255,.05); backdrop-filter:blur(10px);
+    border:1px solid rgba(212,175,55,.3); box-shadow:0 4px 6px rgba(0,0,0,.1);
+  }
+  .custom-bullet { position:relative; padding-left:2rem; margin-bottom:1.2rem; }
+  .custom-bullet::before {
+    content:''; position:absolute; left:0; top:.5rem;
+    width:8px; height:8px; background:#D4AF37; transform:rotate(45deg);
+  }
+
+  /* ── SLIDE 5 – Vision ── */
+  .mandala-center {
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:900px; height:900px;
+    background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 C60 20 80 40 100 50 C80 60 60 80 50 100 C40 80 20 60 0 50 C20 40 40 20 50 0 Z' fill='none' stroke='%23D4AF37' stroke-opacity='0.08' stroke-width='1'/%3E%3Cpath d='M50 10 C58 24 72 38 86 50 C72 62 58 76 50 90 C42 76 28 62 14 50 C28 38 42 24 50 10 Z' fill='none' stroke='%23D4AF37' stroke-opacity='0.1' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23D4AF37' stroke-opacity='0.15' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='15' fill='none' stroke='%23D4AF37' stroke-opacity='0.2' stroke-width='1'/%3E%3C/svg%3E");
+    background-size:200px 200px; background-position:center;
+    border-radius:50%;
+    mask-image:radial-gradient(circle,black 30%,transparent 70%);
+    -webkit-mask-image:radial-gradient(circle,black 30%,transparent 70%);
+    animation:spin 120s linear infinite; z-index:0;
+  }
+  @keyframes spin { from{transform:translate(-50%,-50%) rotate(0deg)} to{transform:translate(-50%,-50%) rotate(360deg)} }
+  .aim-card {
+    background:rgba(42,8,14,.4); border:1px solid rgba(212,175,55,.3);
+    backdrop-filter:blur(5px); transition:all .3s ease;
+  }
+  .aim-card:hover { border-color:rgba(212,175,55,.8); background:rgba(42,8,14,.6); transform:translateY(-5px); }
+  .quote-mark { font-family:'Playfair Display',serif; font-size:120px; color:#D4AF37; opacity:.15; position:absolute; line-height:1; }
+
+  /* ── SLIDE 6 – About Swaras ── */
+  .temple-border-right { border-right:1px solid rgba(212,175,55,.4); position:relative; }
+  .temple-border-right::after {
+    content:''; position:absolute; top:50%; right:-4px;
+    width:8px; height:8px; background:#D4AF37;
+    transform:translateY(-50%) rotate(45deg);
+  }
+  .pattern-overlay {
+    background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0H0v20zM20 40L0 20v20h20zM40 20L20 40h20V20zM20 0l20 20V0H20z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .image-overlay-gradient { background:linear-gradient(to right,#2a080e 0%,rgba(42,8,14,.4) 30%,transparent 100%); }
+  .ornate-bullet { position:relative; padding-left:2.5rem; margin-bottom:1.5rem; }
+  .ornate-bullet::before {
+    content:'\f66b'; font-family:'Font Awesome 6 Free'; font-weight:900;
+    position:absolute; left:0; top:.2rem; color:#D4AF37; font-size:1.2rem; opacity:.8;
+  }
+  .highlight-box { background:rgba(255,255,255,.05); border-left:4px solid #D4AF37; backdrop-filter:blur(4px); }
+
+  /* ── SLIDE 7 – Impact ── */
+  .stat-card { background:rgba(42,8,14,.7); border:1px solid rgba(212,175,55,.3); position:relative; }
+  .corner-accent { position:absolute; width:12px; height:12px; border-color:#D4AF37; opacity:.6; }
+  .top-left  { top:-1px;    left:-1px;  border-top:2px solid;    border-left:2px solid;   }
+  .top-right { top:-1px;    right:-1px; border-top:2px solid;    border-right:2px solid;  }
+  .bottom-left  { bottom:-1px; left:-1px;  border-bottom:2px solid; border-left:2px solid;   }
+  .bottom-right { bottom:-1px; right:-1px; border-bottom:2px solid; border-right:2px solid;  }
+  .icon-box { width:70px; height:70px; border:1px solid rgba(212,175,55,.4); display:flex; align-items:center; justify-content:center; transform:rotate(45deg); background:rgba(107,28,43,.5); margin-right:2rem; }
+  .icon-inner { transform:rotate(-45deg); }
+  .pattern-bg {
+    background-color:#2a080e;
+    background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ── SLIDES 8/9/10 – Sponsor tiers ── */
+  .glass-card {
+    background:rgba(42,8,14,.6); backdrop-filter:blur(12px);
+    border:1px solid rgba(212,175,55,.3); box-shadow:0 8px 32px rgba(0,0,0,.3);
+  }
+  .ornament { position:absolute; width:20px; height:20px; border-color:#D4AF37; border-style:solid; }
+  .ornament-tl { top:0; left:0;  border-width:2px 0 0 2px; }
+  .ornament-tr { top:0; right:0; border-width:2px 2px 0 0; }
+  .ornament-bl { bottom:0; left:0;  border-width:0 0 2px 2px; }
+  .ornament-br { bottom:0; right:0; border-width:0 2px 2px 0; }
+  .benefit-item { transition:transform .2s; }
+  .benefit-item:hover { transform:translateX(5px); background:rgba(212,175,55,.05); }
+
+  /* ── SLIDE 11 – Audience ── */
+  .audience-card { background:rgba(255,255,255,.03); border-bottom:1px solid rgba(212,175,55,.2); transition:all .3s ease; }
+  .audience-card:hover { background:rgba(212,175,55,.08); border-bottom:1px solid rgba(212,175,55,.8); transform:translateX(10px); }
+  .positioning-box { background-color:rgba(42,8,14,.8); border-left:4px solid #D4AF37; }
+
+  /* ── SLIDE 12 – Closing ── */
+  .contact-card { background:rgba(42,8,14,.6); backdrop-filter:blur(10px); border:1px solid rgba(212,175,55,.5); box-shadow:0 10px 30px -5px rgba(0,0,0,.5); }
+  .corner-decor { position:absolute; width:40px; height:40px; border-color:#D4AF37; border-style:solid; pointer-events:none; }
+  .corner-tl2 { top:20px; left:20px;  border-width:2px 0 0 2px; }
+  .corner-tr2 { top:20px; right:20px; border-width:2px 2px 0 0; }
+  .corner-bl2 { bottom:20px; left:20px;  border-width:0 0 2px 2px; }
+  .corner-br2 { bottom:20px; right:20px; border-width:0 2px 2px 0; }
+
+  /* Reused logo bubble */
+  .logo-bubble { background:rgba(255,255,255,.95); padding:.5rem; border-radius:9999px; box-shadow:0 4px 12px rgba(0,0,0,.3); border:1px solid #D4AF37; display:flex; align-items:center; justify-content:center; }
+
+  @media print {
+    body { background: white; }
+    .slide { page-break-after: always; margin: 0; }
+  }
+</style>
+</head>
+<body class="py-8">
+
+<!-- ══════════════════════════════════════════
+     SLIDE 1 – COVER
+══════════════════════════════════════════ -->
+<div class="slide bg-maroon-dark flex flex-col">
+  <!-- Background -->
+  <div class="absolute inset-0 z-0">
+    <img alt="Classical Dance Background" class="w-full h-full object-cover opacity-50" src="C:\Users\Manushree Shah\Downloads\IMG_3223.jpeg"/>
+    <div class="absolute inset-0 bg-maroon-dark opacity-80"></div>
+  </div>
+  <!-- Corners -->
+  <div class="s1-corner s1-tl"></div>
+  <div class="s1-corner s1-tr"></div>
+  <div class="s1-corner s1-bl"></div>
+  <div class="s1-corner s1-br"></div>
+  <!-- Inner border -->
+  <div class="absolute inset-0 m-12 border border-gold opacity-40 z-10 pointer-events-none"></div>
+  <!-- Mandala -->
+  <div class="s1-mandala pointer-events-none"></div>
+  <!-- Logo -->
+  <div class="absolute top-12 right-12 z-30">
+    <div class="logo-bubble h-28 w-28">
+      <img alt="Shrutii Nrityalaya Logo" class="h-20 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg">
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="relative z-20 flex-1 flex flex-col items-center justify-center text-center px-20">
+    <div class="mb-4">
+      <p class="font-lato text-gold uppercase tracking-widest text-sm border-b border-gold pb-2 inline-block" style="letter-spacing:.3em">Annual Cultural Showcase</p>
+    </div>
+    <h1 class="font-playfair text-ivory mb-2 drop-shadow-xl tracking-tight leading-tight" style="font-size:5.5rem">
+      Swaras <span class="text-gold" style="font-style:italic">2026</span>
+    </h1>
+    <div class="flex items-center mb-12" style="gap:1.5rem">
+      <div class="h-px w-16 bg-gold opacity-60"></div>
+      <p class="font-playfair text-ivory text-2xl" style="font-style:italic;opacity:.9">By Shrutii Nrityalaya</p>
+      <div class="h-px w-16 bg-gold opacity-60"></div>
+    </div>
+    <!-- Venue box -->
+    <div class="relative border-t border-b border-gold py-6 px-12 max-w-3xl" style="background:rgba(107,28,43,.4);border-color:rgba(212,175,55,.4)">
+      <div class="absolute left-0 top-0 h-full w-1 bg-gold opacity-50"></div>
+      <div class="absolute right-0 top-0 h-full w-1 bg-gold opacity-50"></div>
+      <p class="font-lato text-gold text-xs uppercase font-bold mb-2" style="letter-spacing:.15em">Venue Location</p>
+      <p class="font-playfair text-ivory text-2xl mb-1">Agri Kohli Bhavan</p>
+      <p class="font-lato text-gray-300 text-lg font-light">Nerul Sec 24,Palm Beach Road, Navi Mumbai</p>
+    </div>
+  </div>
+  <!-- Bottom strip -->
+  <div class="absolute bottom-0 w-full h-2 bg-gold opacity-80 z-20"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 2 – ABOUT THE FOUNDER
+══════════════════════════════════════════ -->
+<div class="slide bg-maroon-dark flex flex-row">
+  <!-- Left image -->
+  <div class="s2-image-frame z-10" style="width:41.66%">
+    <img alt="Classical Dancer" class="w-full h-full object-cover object-top" style="opacity:.95" src="C:\Users\Manushree Shah\Downloads\IMG_3225.jpeg"/>
+    <div class="absolute inset-0" style="background:linear-gradient(to top,#2a080e,transparent,transparent);opacity:.6"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(to right,transparent,rgba(42,8,14,.3))"></div>
+    <div class="absolute bottom-8 left-8 w-24 h-24 border-l-2 border-b-2 border-gold opacity-60"></div>
+    <div class="absolute bottom-10 left-10 w-16 h-16 border-l border-b border-ivory opacity-40"></div>
+  </div>
+  <!-- Right content -->
+  <div class="flex flex-col bg-maroon-dark relative" style="width:58.33%;padding:3rem 3rem 3rem 4rem">
+    <!-- bg motif -->
+    <div class="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none overflow-hidden">
+      <svg class="fill-current text-gold w-full h-full" style="transform:translate(33%,-33%)" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M42.7,-62.9C50.9,-52.8,50.1,-34.4,51.7,-19.2C53.4,-4,57.4,8,54.8,19.1C52.2,30.1,43,40.3,32.4,47.8C21.8,55.3,9.8,60.1,-0.9,61.3C-11.6,62.6,-22.1,60.2,-31.4,53.4C-40.7,46.6,-48.8,35.3,-54.6,22.8C-60.4,10.3,-63.9,-3.4,-60.7,-15.8C-57.5,-28.2,-47.6,-39.3,-36.4,-48.8C-25.2,-58.3,-12.6,-66.2,3.1,-70.5C18.8,-74.7,34.5,-73,42.7,-62.9Z" transform="translate(100 100)"/>
+      </svg>
+    </div>
+    <!-- Logo -->
+    <div class="absolute top-8 right-12 z-30">
+      <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+    </div>
+    <!-- Header -->
+    <div class="mt-2 mb-8 border-l-4 border-gold pl-6 relative">
+      <p class="font-lato text-gold uppercase text-xs font-bold mb-2" style="letter-spacing:.25em">About the Founder</p>
+      <h2 class="font-playfair text-ivory font-bold leading-none tracking-tight" style="font-size:3.75rem">Shruti Raja</h2>
+    </div>
+    <!-- Quote -->
+    <p class="font-playfair text-xl text-ivory mb-8 pr-20 border-b border-gold pb-6" style="font-style:italic;opacity:.9;line-height:1.6">
+      "A dedicated classical dancer and mentor committed to preserving and promoting Indian classical arts."
+    </p>
+    <!-- Cards -->
+    <div class="grid grid-cols-2 gap-6 mb-8 pr-8">
+      <div class="card-glass p-5 rounded-md border-t-2 border-gold relative group">
+        <div class="absolute top-3 right-3 opacity-20"><i class="fas fa-graduation-cap text-3xl text-gold"></i></div>
+        <h3 class="font-playfair text-lg text-gold mb-3 font-bold tracking-wide">Academic Profile</h3>
+        <ul class="font-lato text-gray-200 space-y-2 text-sm">
+          <li class="flex items-center"><i class="fas fa-certificate text-gold text-xs mr-2 w-4" style="opacity:.7"></i> BA in Bharatanatyam</li>
+          <li class="flex items-center"><i class="fas fa-certificate text-gold text-xs mr-2 w-4" style="opacity:.7"></i> MA in Bharatanatyam</li>
+          <li class="flex items-center"><i class="fas fa-certificate text-gold text-xs mr-2 w-4" style="opacity:.7"></i> Visharad in Kathak</li>
+        </ul>
+      </div>
+      <div class="card-glass p-5 rounded-md border-t-2 border-gold relative group">
+        <div class="absolute top-3 right-3 opacity-20"><i class="fas fa-om text-3xl text-gold"></i></div>
+        <h3 class="font-playfair text-lg text-gold mb-3 font-bold tracking-wide">Guided by Maestros</h3>
+        <ul class="font-lato text-gray-200 space-y-2 text-sm">
+          <li class="flex items-center"><i class="fas fa-user-tie text-gold text-xs mr-2 w-4" style="opacity:.7"></i> Pt. Rajendra Gangani Ji</li>
+          <li class="flex items-center"><i class="fas fa-user-tie text-gold text-xs mr-2 w-4" style="opacity:.7"></i> Guru Parimal Phadke Ji</li>
+          <li class="flex items-center"><i class="fas fa-user-tie text-gold text-xs mr-2 w-4" style="opacity:.7"></i> Guru Dheerendra Tiwari Ji</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Closing -->
+    <div class="mt-auto bg-black rounded-r-lg border-l-2 mr-8 p-4" style="background:rgba(0,0,0,.2);border-color:rgba(212,175,55,.5);backdrop-filter:blur(4px)">
+      <p class="font-lato text-gray-300 text-sm leading-relaxed">
+        With strong academic grounding and guidance from legendary gurus, she blends <span class="text-gold">authenticity</span> with <span class="text-gold">contemporary presentation</span> while nurturing the next generation of artists.
+      </p>
+    </div>
+    <div class="absolute bottom-8 right-0 w-32 h-px bg-gold opacity-50"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 3 – ACHIEVEMENTS
+══════════════════════════════════════════ -->
+<div class="slide pattern-bg flex flex-col">
+  <!-- Logo -->
+  <div class="absolute top-8 right-12 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <!-- Top border -->
+  <div class="absolute top-0 left-0 w-full h-2 bg-gold opacity-80 z-20"></div>
+  <!-- Main -->
+  <div class="flex-1 flex flex-col p-12 relative z-10">
+    <!-- Header -->
+    <div class="mb-10 w-2/3">
+      <div class="flex items-center gap-4 mb-2">
+        <div class="h-px w-12 bg-gold"></div>
+        <p class="font-lato text-gold uppercase text-sm font-bold" style="letter-spacing:.2em">Excellence in Art</p>
+      </div>
+      <h1 class="font-playfair text-ivory font-bold leading-tight drop-shadow-lg" style="font-size:2.75rem">
+        Founder's Achievements <span class="text-gold" style="font-style:italic;font-weight:400">&amp; Performances</span>
+      </h1>
+    </div>
+    <!-- Three columns -->
+    <div class="flex-1 grid grid-cols-3 gap-8 pb-8">
+      <!-- Card 1 -->
+      <div class="temple-card p-8 rounded-sm flex flex-col h-full">
+        <div class="corner-ornament c-tl"></div><div class="corner-ornament c-tr"></div>
+        <div class="corner-ornament c-bl"></div><div class="corner-ornament c-br"></div>
+        <div class="border-b border-gold pb-4 mb-6 flex items-center" style="border-color:rgba(212,175,55,.3)">
+          <div class="w-10 h-10 rounded-full border flex items-center justify-center mr-4 bg-maroon-dark" style="border-color:rgba(212,175,55,.5)">
+            <i class="fas fa-star text-gold text-lg"></i>
+          </div>
+          <h3 class="font-playfair text-2xl text-ivory">Major Performances</h3>
+        </div>
+        <div class="font-lato text-gray-200 text-sm space-y-1 overflow-y-auto">
+          <div class="list-icon-bullet"><i class="fas fa-diamond"></i><p>Performed at <span class="text-gold font-bold">Natyanjali Festival</span></p></div>
+          <div class="list-icon-bullet"><i class="fas fa-diamond"></i><p>Performance in presence of <span class="text-gold">Hon. Ex-Agriculture Minister Shri Sharad Pawar</span></p></div>
+          <div class="list-icon-bullet"><i class="fas fa-diamond"></i><p>International showcase at <span class="text-gold">Indian Association (IAC), Cambodia</span></p></div>
+          <div class="list-icon-bullet"><i class="fas fa-diamond"></i><p>Marathi Serial Feature: <em>Khel Mandala</em> (E-Marathi)</p></div>
+          <div class="list-icon-bullet"><i class="fas fa-diamond"></i><p>Zee Marathi Appearance: <em>Ekach Ya Janmi Janu</em></p></div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="temple-card p-8 rounded-sm flex flex-col h-full">
+        <div class="corner-ornament c-tl"></div><div class="corner-ornament c-tr"></div>
+        <div class="corner-ornament c-bl"></div><div class="corner-ornament c-br"></div>
+        <div class="border-b border-gold pb-4 mb-6 flex items-center" style="border-color:rgba(212,175,55,.3)">
+          <div class="w-10 h-10 rounded-full border flex items-center justify-center mr-4 bg-maroon-dark" style="border-color:rgba(212,175,55,.5)">
+            <i class="fas fa-briefcase text-gold text-lg"></i>
+          </div>
+          <h3 class="font-playfair text-2xl text-ivory">Professional Assignments</h3>
+        </div>
+        <div class="font-lato text-gray-200 text-sm space-y-1">
+          <div class="list-icon-bullet"><i class="fas fa-feather-alt"></i><p>Featured in <span class="text-gold font-bold">Femina Magazine</span></p></div>
+          <div class="list-icon-bullet"><i class="fas fa-feather-alt"></i><p>Model for <span class="text-gold">Harley Davidson Calendar</span></p></div>
+          <div class="list-icon-bullet"><i class="fas fa-feather-alt"></i><p>Showcase at <span class="text-gold">Goa Fashion Week</span></p></div>
+          <div class="list-icon-bullet"><i class="fas fa-feather-alt"></i><p>Cast in <span class="text-gold">Colgate TV Advertisement</span></p></div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="temple-card p-0 rounded-sm flex flex-col h-full overflow-hidden">
+        <div class="corner-ornament c-tl" style="z-index:20"></div><div class="corner-ornament c-tr" style="z-index:20"></div>
+        <div class="corner-ornament c-bl" style="z-index:20"></div><div class="corner-ornament c-br" style="z-index:20"></div>
+        <div class="p-8 pb-4 relative z-10 bg-maroon-dark" style="opacity:.9">
+          <div class="border-b border-gold pb-4 mb-4 flex items-center" style="border-color:rgba(212,175,55,.3)">
+            <div class="w-10 h-10 rounded-full border flex items-center justify-center mr-4 bg-maroon-dark" style="border-color:rgba(212,175,55,.5)">
+              <i class="fas fa-tv text-gold text-lg"></i>
+            </div>
+            <h3 class="font-playfair text-2xl text-ivory">Television</h3>
+          </div>
+          <div class="list-icon-bullet">
+            <i class="fas fa-broadcast-tower text-gold" style="margin-top:.3rem;margin-right:.75rem;font-size:.7rem"></i>
+            <p class="font-lato text-gray-200 text-sm">Featured Artist in <span class="text-gold font-bold">Doordarshan Marathi</span> Musical Program</p>
+          </div>
+        </div>
+        <div class="flex-1 relative w-full">
+          <img alt="Dance Performance" class="absolute inset-0 w-full h-full object-cover" style="opacity:.8" src="C:\Users\Manushree Shah\Downloads\IMG_3217.jpeg"/>
+          <div class="absolute inset-0" style="background:linear-gradient(to top,#2a080e,transparent,transparent);opacity:.9"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <p class="font-playfair text-ivory text-sm text-center border-t border-gold pt-3" style="font-style:italic;opacity:.8;border-color:rgba(212,175,55,.3)">"Blending tradition with grace across all platforms."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-0 w-full flex justify-center pb-2 z-20">
+    <div class="w-3/4 h-px" style="background:linear-gradient(to right,transparent,rgba(212,175,55,.5),transparent)"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 4 – ABOUT SHRUTII NRITYALAYA
+══════════════════════════════════════════ -->
+<div class="slide bg-maroon-dark flex">
+  <!-- Logo -->
+  <div class="absolute top-8 right-12 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <!-- Left content (55%) -->
+  <div class="flex flex-col justify-center relative z-10 mandala-bg" style="width:55%;padding:4rem">
+    <div class="absolute left-8 top-8 bottom-8 w-px bg-gold opacity-30"></div>
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-0.5 w-10 bg-gold"></div>
+        <p class="font-lato text-gold uppercase text-sm font-bold" style="letter-spacing:.2em">The Academy</p>
+      </div>
+      <h2 class="font-playfair text-ivory font-bold leading-none mb-4" style="font-size:3.75rem">About <br/><span class="text-gold" style="font-style:italic">Shrutii Nrityalaya</span></h2>
+    </div>
+    <!-- Location box -->
+    <div class="glass-box p-6 rounded-sm mb-10 border-l-4 border-gold">
+      <div class="flex items-start">
+        <div class="mt-1 mr-4 text-gold"><i class="fas fa-map-marker-alt text-2xl"></i></div>
+        <div>
+          <h4 class="font-playfair text-xl text-ivory mb-1">Location</h4>
+          <p class="font-lato text-gray-300 text-base leading-relaxed">Vitthal Rukmini Mandir, Seawoods Sec 28,<br/>Opp Nerul Gymkhana, Navi Mumbai</p>
+        </div>
+      </div>
+    </div>
+    <!-- Features -->
+    <div class="space-y-4">
+      <div class="flex items-center p-3 rounded" style="transition:background .2s">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-gold mr-4 border" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.3)"><i class="fas fa-users text-lg"></i></div>
+        <div>
+          <h5 class="font-playfair text-xl text-gold font-bold">100+ Active Students across Navi Mumbai</h5>
+          <p class="font-lato text-gray-400 text-sm">Enrolled and training regularly</p>
+        </div>
+      </div>
+      <div class="flex items-center p-3 rounded">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-gold mr-4 border" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.3)"><i class="fas fa-file-contract text-lg"></i></div>
+        <div>
+          <h5 class="font-playfair text-xl text-ivory">Certified Examinations</h5>
+          <p class="font-lato text-gray-400 text-sm">Students regularly appear for exams conducted by Akhil Bharatiya Mahavidyalaya, for Bharatnatyam and Kathak.</p>
+        </div>
+      </div>
+      <div class="flex items-center p-3 rounded">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-gold mr-4 border" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.3)"><i class="fas fa-om text-lg"></i></div>
+        <div>
+          <h5 class="font-playfair text-xl text-ivory">Structured Training</h5>
+          <p class="font-lato text-gray-400 text-sm">Focus on discipline, stage exposure &amp; cultural grounding</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Right image (45%) -->
+  <div class="relative z-10" style="width:45%">
+    <div class="absolute inset-0 bg-maroon-dark z-0"></div>
+    <img alt="Classroom Practice" class="w-full h-full object-cover" style="opacity:.8;mix-blend-mode:overlay" src="C:\Users\Manushree Shah\Downloads\IMG_3220.jpeg"/>
+    <div class="absolute inset-y-0 left-0 w-32 z-10" style="background:linear-gradient(to right,#2a080e,transparent)"></div>
+    <div class="absolute top-12 bottom-12 right-12 left-12 border border-gold opacity-40 z-20 pointer-events-none"></div>
+    <div class="absolute top-10 bottom-10 right-10 left-10 border border-ivory opacity-20 z-20 pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 p-8 z-30">
+      <p class="font-playfair text-gold font-bold text-right" style="font-size:3.75rem;opacity:.2">2026</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 5 – VISION & AIM
+══════════════════════════════════════════ -->
+<div class="slide bg-maroon-dark flex flex-col items-center justify-center p-12">
+  <!-- Mandala bg -->
+  <div class="mandala-center"></div>
+  <!-- Borders -->
+  <div class="absolute top-6 bottom-6 left-6 right-6 border border-gold opacity-30 z-10 pointer-events-none"></div>
+  <div class="absolute top-8 bottom-8 left-8 right-8 border border-ivory opacity-10 z-10 pointer-events-none"></div>
+  <!-- Corners -->
+  <div class="absolute top-6 left-6 w-16 h-16 border-t-4 border-l-4 border-gold opacity-60 z-20"></div>
+  <div class="absolute top-6 right-6 w-16 h-16 border-t-4 border-r-4 border-gold opacity-60 z-20"></div>
+  <div class="absolute bottom-6 left-6 w-16 h-16 border-b-4 border-l-4 border-gold opacity-60 z-20"></div>
+  <div class="absolute bottom-6 right-6 w-16 h-16 border-b-4 border-r-4 border-gold opacity-60 z-20"></div>
+  <!-- Logo -->
+  <div class="absolute top-10 right-10 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <!-- Content -->
+  <div class="relative z-30 w-full max-w-5xl flex flex-col items-center text-center">
+    <div class="mb-12 relative w-full">
+      <span class="quote-mark" style="top:-60px;left:0">"</span>
+      <span class="quote-mark" style="bottom:-80px;right:0">"</span>
+      <h2 class="font-lato text-gold uppercase text-sm font-bold mb-6" style="letter-spacing:.4em">Our Vision</h2>
+      <p class="font-playfair text-ivory leading-relaxed px-12" style="font-size:2rem">
+        In today's fast-paced and restless world, <br/>
+        <span class="text-gold" style="font-style:italic">Shrutii Nrityalaya</span> strives to reconnect the younger generation with the
+        <strong>authenticity</strong>, <strong>depth</strong>, and <strong>grace</strong> of Indian classical dance.
+      </p>
+      <div class="w-24 h-1 bg-gold mx-auto mt-8 opacity-60 rounded-full"></div>
+    </div>
+    <div class="w-full">
+      <h3 class="font-lato mb-6 text-xs font-bold uppercase" style="color:rgba(212,175,55,.8);letter-spacing:.2em">Through Swaras, We Aim To:</h3>
+      <div class="grid grid-cols-4 gap-6">
+        <div class="aim-card p-6 rounded-lg flex flex-col items-center text-center justify-center group" style="height:12rem">
+          <div class="w-12 h-12 rounded-full border flex items-center justify-center mb-4 bg-maroon" style="border-color:rgba(212,175,55,.5);transition:transform .3s"><i class="fas fa-seedling text-gold text-lg"></i></div>
+          <p class="font-playfair text-ivory text-lg leading-tight">Spread Indian classical culture &amp; roots</p>
+          <p class="font-lato text-xs mt-2 uppercase tracking-wider" style="color:rgba(212,175,55,.6)">Across Navi Mumbai</p>
+        </div>
+        <div class="aim-card p-6 rounded-lg flex flex-col items-center text-center justify-center group" style="height:12rem">
+          <div class="w-12 h-12 rounded-full border flex items-center justify-center mb-4 bg-maroon" style="border-color:rgba(212,175,55,.5)"><i class="fas fa-child text-gold text-lg"></i></div>
+          <p class="font-playfair text-ivory text-lg leading-tight">Nurture young talent</p>
+          <p class="font-lato text-xs mt-2 uppercase tracking-wider" style="color:rgba(212,175,55,.6)">Future Stars</p>
+        </div>
+        <div class="aim-card p-6 rounded-lg flex flex-col items-center text-center justify-center group" style="height:12rem">
+          <div class="w-12 h-12 rounded-full border flex items-center justify-center mb-4 bg-maroon" style="border-color:rgba(212,175,55,.5)"><i class="fas fa-theater-masks text-gold text-lg"></i></div>
+          <p class="font-playfair text-ivory text-lg leading-tight">Build confidence &amp; discipline</p>
+          <p class="font-lato text-xs mt-2 uppercase tracking-wider" style="color:rgba(212,175,55,.6)">Through Art</p>
+        </div>
+        <div class="aim-card p-6 rounded-lg flex flex-col items-center text-center justify-center group" style="height:12rem">
+          <div class="w-12 h-12 rounded-full border flex items-center justify-center mb-4 bg-maroon" style="border-color:rgba(212,175,55,.5)"><i class="fas fa-graduation-cap text-gold text-lg"></i></div>
+          <p class="font-playfair text-ivory text-lg leading-tight">Guide towards meaningful careers</p>
+          <p class="font-lato text-xs mt-2 uppercase tracking-wider" style="color:rgba(212,175,55,.6)">In Arts Field</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 6 – ABOUT SWARAS
+══════════════════════════════════════════ -->
+<div class="slide bg-maroon-dark flex">
+  <!-- Logo -->
+  <div class="absolute top-8 right-12 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <!-- Left content (50%) -->
+  <div class="flex flex-col justify-center p-16 relative z-20 temple-border-right bg-maroon-dark" style="width:50%">
+    <div class="absolute inset-0 pattern-overlay opacity-30 pointer-events-none"></div>
+    <div class="w-24 h-1 bg-gold mb-8 opacity-70"></div>
+    <div class="relative z-10 mb-8">
+      <p class="font-lato text-gold uppercase text-sm font-bold mb-2" style="letter-spacing:.25em">Annual Cultural Showcase</p>
+      <h2 class="font-playfair text-ivory font-bold leading-none" style="font-size:3.75rem">About <span class="text-gold" style="font-style:italic">Swaras</span></h2>
+    </div>
+    <div class="relative z-10 mb-10" style="space-y:.5rem">
+      <div class="ornate-bullet group">
+        <h4 class="font-playfair text-xl text-ivory mb-1">A Legacy Since 2020</h4>
+        <p class="font-lato text-gray-300 text-sm leading-relaxed">Started in January 2020, Swaras has grown into a hallmark annual event celebrating classical arts.</p>
+      </div>
+      <div class="ornate-bullet group">
+        <h4 class="font-playfair text-xl text-ivory mb-1">Platform for Excellence</h4>
+        <p class="font-lato text-gray-300 text-sm leading-relaxed">A dedicated stage for students to showcase their rigorous training and classical proficiency.</p>
+      </div>
+      <div class="ornate-bullet group">
+        <h4 class="font-playfair text-xl text-ivory mb-1">Celebrating Heritage</h4>
+        <p class="font-lato text-gray-300 text-sm leading-relaxed">Keeping the roots of Indian tradition alive through authentic Bharatanatyam and Kathak performances.</p>
+      </div>
+    </div>
+    <div class="highlight-box p-6 relative z-10 rounded-r-lg">
+      <div class="flex items-center">
+        <i class="fas fa-map-marked-alt text-gold text-2xl mr-4"></i>
+        <div>
+          <p class="font-playfair text-lg text-ivory" style="font-style:italic">"Growing cultural presence in Navi Mumbai"</p>
+          <p class="font-lato text-xs uppercase tracking-wider mt-1" style="color:rgba(212,175,55,.7)">Building Community Through Art</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-16 font-playfair text-gold pointer-events-none z-0" style="font-size:6rem;opacity:.1">2026</div>
+  </div>
+  <!-- Right image (50%) -->
+  <div class="relative z-10" style="width:50%">
+    <img alt="Swaras Event" class="w-full h-full object-cover object-center" src="C:\Users\Manushree Shah\Downloads\pic 1.avif"/>
+    <div class="absolute inset-0 bg-maroon-dark" style="mix-blend-mode:multiply;opacity:.4"></div>
+    <div class="absolute inset-0 image-overlay-gradient"></div>
+    <div class="absolute inset-8 border border-ivory pointer-events-none" style="opacity:.2"></div>
+    <div class="absolute inset-10 border border-gold pointer-events-none" style="opacity:.4"></div>
+    <div class="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-gold opacity-80"></div>
+    <div class="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-gold opacity-80"></div>
+    <div class="absolute bottom-12 right-12 text-right">
+      <p class="font-lato text-white text-xs uppercase mb-1" style="letter-spacing:.2em;opacity:.8">Annual Event</p>
+      <p class="font-playfair text-gold text-2xl" style="font-style:italic">Cultural Spectacle</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 7 – OUR IMPACT
+══════════════════════════════════════════ -->
+<div class="slide pattern-bg flex flex-col items-center p-12">
+  <!-- Faded bg image -->
+  <div class="absolute inset-0 z-0">
+    <img alt="Background" class="w-full h-full object-cover" style="opacity:.1;mix-blend-mode:overlay" src="C:\Users\Manushree Shah\Downloads\IMG_3219.jpeg"/>
+    <div class="absolute inset-0 bg-maroon-dark opacity-80"></div>
+  </div>
+  <div class="absolute top-6 left-6 right-6 bottom-6 border border-gold opacity-20 pointer-events-none z-10"></div>
+  <div class="absolute top-8 left-8 right-8 bottom-8 border border-ivory opacity-10 pointer-events-none z-10"></div>
+  <!-- Logo -->
+  <div class="absolute top-10 right-10 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <!-- Header -->
+  <div class="text-center mb-10 relative z-20 w-full">
+    <div class="flex items-center justify-center gap-4 mb-3">
+      <div class="h-px w-12 bg-gold opacity-60"></div>
+      <p class="font-lato text-gold uppercase text-xs font-bold" style="letter-spacing:.3em">Growing Legacy</p>
+      <div class="h-px w-12 bg-gold opacity-60"></div>
+    </div>
+    <h2 class="font-playfair text-ivory font-bold leading-none drop-shadow-md" style="font-size:3.75rem">
+      Our <span class="text-gold" style="font-style:italic">Impact</span>
+    </h2>
+  </div>
+  <!-- Stats grid -->
+  <div class="grid grid-cols-2 gap-6 w-full max-w-5xl relative z-20 flex-1">
+    <div class="stat-card rounded flex items-center p-6 h-full group">
+      <div class="corner-accent top-left"></div><div class="corner-accent top-right"></div>
+      <div class="corner-accent bottom-left"></div><div class="corner-accent bottom-right"></div>
+      <div class="icon-box flex-shrink-0"><div class="icon-inner"><i class="fas fa-child text-gold text-3xl"></i></div></div>
+      <div class="flex flex-col">
+        <p class="font-playfair text-gold font-bold leading-tight" style="font-size:3rem">100+</p>
+        <h3 class="font-playfair text-2xl text-ivory mb-1">Active Students</h3>
+        <p class="font-lato text-gray-400 text-sm tracking-wide">Regularly training &amp; dedicated</p>
+      </div>
+    </div>
+    <div class="stat-card rounded flex items-center p-6 h-full group">
+      <div class="corner-accent top-left"></div><div class="corner-accent top-right"></div>
+      <div class="corner-accent bottom-left"></div><div class="corner-accent bottom-right"></div>
+      <div class="icon-box flex-shrink-0"><div class="icon-inner"><i class="fas fa-theater-masks text-gold text-3xl"></i></div></div>
+      <div class="flex flex-col">
+        <p class="font-playfair text-gold font-bold leading-tight" style="font-size:3rem">Annual</p>
+        <h3 class="font-playfair text-2xl text-ivory mb-1">Public Performances</h3>
+        <p class="font-lato text-gray-400 text-sm tracking-wide">Showcasing classical excellence</p>
+      </div>
+    </div>
+    <div class="stat-card rounded flex items-center p-6 h-full group">
+      <div class="corner-accent top-left"></div><div class="corner-accent top-right"></div>
+      <div class="corner-accent bottom-left"></div><div class="corner-accent bottom-right"></div>
+      <div class="icon-box flex-shrink-0"><div class="icon-inner"><i class="fas fa-file-contract text-gold text-3xl"></i></div></div>
+      <div class="flex flex-col">
+        <p class="font-playfair text-gold font-bold leading-tight" style="font-size:3rem">Certified</p>
+        <h3 class="font-playfair text-2xl text-ivory mb-1">Exam Appearances</h3>
+        <p class="font-lato text-gray-400 text-sm tracking-wide">Gandharva Mahavidyalaya Exams</p>
+      </div>
+    </div>
+    <div class="stat-card rounded flex items-center p-6 h-full group">
+      <div class="corner-accent top-left"></div><div class="corner-accent top-right"></div>
+      <div class="corner-accent bottom-left"></div><div class="corner-accent bottom-right"></div>
+      <div class="icon-box flex-shrink-0"><div class="icon-inner"><i class="fas fa-hands text-gold text-3xl"></i></div></div>
+      <div class="flex flex-col">
+        <p class="font-playfair text-gold font-bold leading-tight" style="font-size:3rem">Strong</p>
+        <h3 class="font-playfair text-2xl text-ivory mb-1">Community Presence</h3>
+        <p class="font-lato text-gray-400 text-sm tracking-wide">Deep cultural roots in Navi Mumbai</p>
+      </div>
+    </div>
+  </div>
+  <div class="h-8"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 8 – TITLE SPONSOR
+══════════════════════════════════════════ -->
+<div class="slide pattern-bg flex flex-col">
+  <div class="absolute top-0 left-0 w-full h-2 bg-gold opacity-80 z-20"></div>
+  <div class="w-full border-b border-gold bg-maroon-dark flex items-center justify-center z-10" style="height:4rem;border-color:rgba(212,175,55,.3)">
+    <p class="font-lato text-gold uppercase text-sm font-bold" style="letter-spacing:.4em">Sponsorship Opportunity</p>
+  </div>
+  <div class="absolute top-8 right-12 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <div class="flex-1 flex p-12 gap-12 items-center justify-center relative z-0">
+    <div class="absolute left-1/2 top-20 bottom-20 w-px bg-gold opacity-30"></div>
+    <!-- Left -->
+    <div class="flex flex-col items-center justify-center text-center relative" style="width:41.66%">
+      <div class="mb-6">
+        <div class="bg-gold text-maroon font-bold font-lato text-xs uppercase px-4 py-1 rounded-full border border-ivory shadow-lg tracking-wider">Exclusive • 1 Slot Only</div>
+      </div>
+      <h1 class="font-playfair text-ivory font-bold leading-tight mb-2 drop-shadow-lg" style="font-size:3.75rem">Title <br/><span class="text-gold" style="font-style:italic">Sponsor</span></h1>
+      <div class="w-24 h-1 bg-gold my-6 rounded-full opacity-80"></div>
+      <div class="glass-card px-8 py-6 rounded-lg relative">
+        <div class="ornament ornament-tl"></div><div class="ornament ornament-tr"></div>
+        <div class="ornament ornament-bl"></div><div class="ornament ornament-br"></div>
+        <p class="font-lato text-gray-300 text-sm uppercase tracking-widest mb-2">Contribution Range</p>
+        <p class="font-playfair text-gold-bright font-bold" style="font-size:2.5rem">₹75,000 – ₹1,00,000</p>
+      </div>
+    </div>
+    <!-- Right -->
+    <div class="flex items-center" style="width:58.33%">
+      <div class="glass-card w-full p-8 rounded-lg relative border-l-4 border-gold">
+        <div class="flex items-center gap-4 mb-8 border-b border-gold pb-4" style="border-color:rgba(212,175,55,.2)">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center border" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.5)"><i class="fas fa-crown text-gold text-xl"></i></div>
+          <div>
+            <h3 class="font-playfair text-2xl text-ivory">Premium Benefits</h3>
+            <p class="font-lato text-gray-400 text-xs uppercase tracking-wide">Maximum Brand Visibility</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-1">
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-playfair text-lg text-ivory">Event Titled: <em>"Swaras 2026 powered by XYZ"</em></p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Dominant Logo placement on main banner &amp; backdrop</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">5–6 Exclusive Stage Mentions during prime time</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Comprehensive Social Media Promotions (Tagging &amp; Reels)</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Dedicated Stall Space &amp; Premium Standee Display</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Pamphlet / Brochure Distribution to audience</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-0 w-full flex justify-center opacity-30">
+    <i class="fas fa-om text-gold text-2xl mx-4"></i><i class="fas fa-om text-gold text-2xl mx-4"></i><i class="fas fa-om text-gold text-2xl mx-4"></i>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 9 – CO SPONSOR
+══════════════════════════════════════════ -->
+<div class="slide pattern-bg flex flex-col">
+  <div class="absolute top-0 left-0 w-full h-2 bg-gold opacity-80 z-20"></div>
+  <div class="w-full border-b border-gold bg-maroon-dark flex items-center justify-center z-10" style="height:4rem;border-color:rgba(212,175,55,.3)">
+    <p class="font-lato text-gold uppercase text-sm font-bold" style="letter-spacing:.4em">Sponsorship Tier 2</p>
+  </div>
+  <div class="absolute top-8 right-12 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <div class="flex-1 flex p-12 gap-12 items-center justify-center relative z-0">
+    <div class="absolute left-1/2 top-20 bottom-20 w-px bg-gold opacity-30"></div>
+    <div class="flex flex-col items-center justify-center text-center relative" style="width:41.66%">
+      <div class="mb-6">
+        <div class="bg-gold text-maroon font-bold font-lato text-xs uppercase px-4 py-1 rounded-full border border-ivory shadow-lg tracking-wider">High Visibility • Limited Slots</div>
+      </div>
+      <h1 class="font-playfair text-ivory font-bold leading-tight mb-2 drop-shadow-lg" style="font-size:3.75rem">Co <br/><span class="text-gold" style="font-style:italic">Sponsor</span></h1>
+      <div class="w-24 h-1 bg-gold my-6 rounded-full opacity-80"></div>
+      <div class="glass-card px-8 py-6 rounded-lg relative">
+        <div class="ornament ornament-tl"></div><div class="ornament ornament-tr"></div>
+        <div class="ornament ornament-bl"></div><div class="ornament ornament-br"></div>
+        <p class="font-lato text-gray-300 text-sm uppercase tracking-widest mb-2">Contribution Range</p>
+        <p class="font-playfair text-gold-bright font-bold" style="font-size:2.5rem">₹45,000 – ₹70,000</p>
+      </div>
+    </div>
+    <div class="flex items-center" style="width:58.33%">
+      <div class="glass-card w-full p-8 rounded-lg relative border-l-4 border-gold">
+        <div class="flex items-center gap-4 mb-8 border-b border-gold pb-4" style="border-color:rgba(212,175,55,.2)">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center border" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.5)"><i class="fas fa-handshake text-gold text-xl"></i></div>
+          <div>
+            <h3 class="font-playfair text-2xl text-ivory">Strategic Benefits</h3>
+            <p class="font-lato text-gray-400 text-xs uppercase tracking-wide">Brand Presence &amp; Engagement</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-2">
+          <div class="benefit-item flex items-start p-3 rounded group">
+            <i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i>
+            <div><p class="font-playfair text-lg text-ivory">Logo on Main Banner</p><p class="font-lato text-gray-400 text-sm" style="font-style:italic">(Prominent placement, secondary to Title Sponsor)</p></div>
+          </div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">2–3 Stage Mentions by Host</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Social Media Tagging &amp; Promotion</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Standee Placement at Venue Entrance</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Pamphlet / Brochure Distribution</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-0 w-full flex justify-center opacity-30">
+    <i class="fas fa-om text-gold text-2xl mx-4"></i><i class="fas fa-om text-gold text-2xl mx-4"></i><i class="fas fa-om text-gold text-2xl mx-4"></i>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 10 – ASSOCIATE SPONSOR
+══════════════════════════════════════════ -->
+<div class="slide pattern-bg flex flex-col">
+  <div class="absolute top-0 left-0 w-full h-2 bg-gold opacity-80 z-20"></div>
+  <div class="w-full border-b border-gold bg-maroon-dark flex items-center justify-center z-10" style="height:4rem;border-color:rgba(212,175,55,.3)">
+    <p class="font-lato text-gold uppercase text-sm font-bold" style="letter-spacing:.4em">Sponsorship Tier 3</p>
+  </div>
+  <div class="absolute top-8 right-12 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <div class="flex-1 flex p-12 gap-12 items-center justify-center relative z-0">
+    <div class="absolute left-1/2 top-20 bottom-20 w-px bg-gold opacity-30"></div>
+    <div class="flex flex-col items-center justify-center text-center relative" style="width:41.66%">
+      <div class="mb-6">
+        <div class="font-bold font-lato text-xs uppercase px-4 py-1 rounded-full border border-gold shadow-lg tracking-wider text-gold-bright" style="background:rgba(212,175,55,.2)">Community Partner</div>
+      </div>
+      <h1 class="font-playfair text-ivory font-bold leading-tight mb-2 drop-shadow-lg" style="font-size:3.75rem">Associate <br/><span class="text-gold" style="font-style:italic">Sponsor</span></h1>
+      <div class="w-24 h-1 bg-gold my-6 rounded-full opacity-80"></div>
+      <div class="glass-card px-8 py-6 rounded-lg relative w-full max-w-md">
+        <div class="ornament ornament-tl"></div><div class="ornament ornament-tr"></div>
+        <div class="ornament ornament-bl"></div><div class="ornament ornament-br"></div>
+        <p class="font-lato text-gray-300 text-sm uppercase tracking-widest mb-2">Contribution Range</p>
+        <p class="font-playfair text-gold-bright font-bold" style="font-size:2.5rem">₹15,000 – ₹30,000</p>
+      </div>
+      <div class="mt-8 w-full max-w-md">
+        <p class="font-lato text-gold text-xs uppercase tracking-widest mb-3 inline-block border-b border-gold pb-1" style="border-color:rgba(212,175,55,.3)">Ideal For</p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <div class="px-3 py-1 border border-gold rounded text-ivory font-lato text-sm bg-maroon-dark" style="border-color:rgba(212,175,55,.4)">Food Brands</div>
+          <div class="px-3 py-1 border border-gold rounded text-ivory font-lato text-sm bg-maroon-dark" style="border-color:rgba(212,175,55,.4)">Coaching Institutes</div>
+          <div class="px-3 py-1 border border-gold rounded text-ivory font-lato text-sm bg-maroon-dark" style="border-color:rgba(212,175,55,.4)">Local Businesses</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center" style="width:58.33%">
+      <div class="glass-card w-full p-8 rounded-lg relative border-l-4 border-gold">
+        <div class="flex items-center gap-4 mb-8 border-b border-gold pb-4" style="border-color:rgba(212,175,55,.2)">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center border" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.5)"><i class="fas fa-handshake text-gold text-xl"></i></div>
+          <div>
+            <h3 class="font-playfair text-2xl text-ivory">Brand Benefits</h3>
+            <p class="font-lato text-gray-400 text-xs uppercase tracking-wide">Targeted Local Visibility</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-4">
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-playfair text-lg text-ivory">Logo Placement on Poster</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">1–2 Stage Mentions during event announcements</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Social Media Mention (Stories &amp; Posts)</p></div>
+          <div class="benefit-item flex items-start p-3 rounded group" style="opacity:.8"><i class="fas fa-check-circle text-gold mt-1 mr-4 flex-shrink-0"></i><p class="font-lato text-gray-200">Access to local community audience</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-0 w-full flex justify-center opacity-30">
+    <i class="fas fa-om text-gold text-2xl mx-4"></i><i class="fas fa-om text-gold text-2xl mx-4"></i><i class="fas fa-om text-gold text-2xl mx-4"></i>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 11 – AUDIENCE & REACH
+══════════════════════════════════════════ -->
+<div class="slide bg-maroon-dark flex">
+  <div class="absolute top-8 right-12 z-50">
+    <div class="logo-bubble h-20 w-20"><img alt="Logo" class="h-14 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+  </div>
+  <!-- Left content (55%) -->
+  <div class="flex flex-col justify-center p-16 relative z-20" style="width:55%;border-right:1px solid rgba(212,175,55,.3)">
+    <div class="absolute inset-0 pattern-overlay pointer-events-none opacity-50"></div>
+    <div class="relative z-10 mb-10">
+      <p class="font-lato text-gold uppercase text-sm font-bold mb-3" style="letter-spacing:.25em">Target Demographics</p>
+      <h2 class="font-playfair text-ivory font-bold leading-tight" style="font-size:3rem">Audience &amp; <span class="text-gold" style="font-style:italic">Reach</span></h2>
+      <div class="w-20 h-1 bg-gold mt-6 rounded-full opacity-70"></div>
+    </div>
+    <div class="relative z-10 mb-10" style="space-y:1rem">
+      <div class="audience-card p-4 rounded flex items-center group mb-4">
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-maroon border text-gold mr-5 flex-shrink-0" style="border-color:rgba(212,175,55,.4)"><i class="fas fa-users text-lg"></i></div>
+        <div><h4 class="font-playfair text-xl text-ivory mb-1">100+ Students &amp; Families</h4><p class="font-lato text-gray-400 text-sm">Dedicated, high-engagement core community</p></div>
+      </div>
+      <div class="audience-card p-4 rounded flex items-center group mb-4">
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-maroon border text-gold mr-5 flex-shrink-0" style="border-color:rgba(212,175,55,.4)"><i class="fas fa-gopuram text-lg"></i></div>
+        <div><h4 class="font-playfair text-xl text-ivory mb-1">Temple Venue Audience</h4><p class="font-lato text-gray-400 text-sm">Traditional art lovers &amp; local residents</p></div>
+      </div>
+      <div class="audience-card p-4 rounded flex items-center group mb-4">
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-maroon border text-gold mr-5 flex-shrink-0" style="border-color:rgba(212,175,55,.4)"><i class="fas fa-map-marked-alt text-lg"></i></div>
+        <div><h4 class="font-playfair text-xl text-ivory mb-1">Navi Mumbai Community</h4><p class="font-lato text-gray-400 text-sm">Strong visibility across Seawoods &amp; Nerul , Belpaur, Vashi, Kharghar & Airoli</p></div>
+      </div>
+      <div class="audience-card p-4 rounded flex items-center group mb-4">
+        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-maroon border text-gold mr-5 flex-shrink-0" style="border-color:rgba(212,175,55,.4)"><i class="fas fa-share-nodes text-lg"></i></div>
+        <div><h4 class="font-playfair text-xl text-ivory mb-1">Digital Presence</h4><p class="font-lato text-gray-400 text-sm">Social media engagement &amp; event promotion</p></div>
+      </div>
+    </div>
+    <div class="relative z-10 positioning-box p-5 rounded-r-lg">
+      <p class="font-playfair text-gold text-lg mb-2" style="font-style:italic">"Brand Alignment"</p>
+      <p class="font-lato text-gray-200 text-sm leading-relaxed">Connect with a disciplined, culturally rooted, and affluent demographic that values tradition, arts, and education.</p>
+    </div>
+    <div class="absolute bottom-6 left-16 flex gap-2 opacity-30">
+      <div class="w-2 h-2 rounded-full bg-gold"></div><div class="w-2 h-2 rounded-full bg-gold"></div><div class="w-2 h-2 rounded-full bg-gold"></div>
+    </div>
+  </div>
+  <!-- Right image (45%) -->
+  <div class="relative z-10" style="width:45%">
+    <img alt="Audience" class="w-full h-full object-cover object-center" src="C:\Users\Manushree Shah\Downloads\IMG_3218.jpeg"/>
+    <div class="absolute inset-0 bg-maroon-dark" style="mix-blend-mode:multiply;opacity:.4"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(to left,transparent,rgba(42,8,14,.9));opacity:.6"></div>
+    <div class="absolute top-20 right-20 bottom-20 left-20 border border-ivory pointer-events-none" style="opacity:.3"></div>
+    <div class="absolute top-10 right-10 w-16 h-16 border-t-2 border-r-2 border-gold opacity-80"></div>
+    <div class="absolute bottom-10 right-10 w-16 h-16 border-b-2 border-r-2 border-gold opacity-80"></div>
+    <div class="absolute bottom-12 right-12 text-right">
+      <p class="font-lato text-ivory text-xs uppercase mb-1" style="letter-spacing:.2em;opacity:.9">Venue Focus</p>
+      <p class="font-playfair text-gold text-2xl" style="font-style:italic">Agri Kohli Bhavan</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 12 – CLOSING / THANK YOU
+══════════════════════════════════════════ -->
+<div class="slide bg-maroon-dark flex flex-col items-center justify-center">
+  <!-- Background -->
+  <div class="absolute inset-0 z-0">
+    <img alt="Background" class="w-full h-full object-cover opacity-30" src="C:\Users\Manushree Shah\Downloads\IMG_3221.jpeg"/>
+    <div class="absolute inset-0 bg-maroon-dark opacity-90" style="mix-blend-mode:multiply"></div>
+    <div class="absolute inset-0 pattern-overlay opacity-30"></div>
+  </div>
+  <!-- Corners -->
+  <div class="corner-decor corner-tl2 z-10"></div>
+  <div class="corner-decor corner-tr2 z-10"></div>
+  <div class="corner-decor corner-bl2 z-10"></div>
+  <div class="corner-decor corner-br2 z-10"></div>
+  <div class="absolute inset-8 border border-gold opacity-20 z-10 pointer-events-none"></div>
+  <!-- Content -->
+  <div class="relative z-20 flex flex-col items-center justify-center text-center h-full w-full max-w-4xl px-8">
+    <!-- Small logo top right -->
+    <div class="absolute top-10 right-10">
+      <div class="logo-bubble h-16 w-16"><img alt="Logo" class="h-10 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/></div>
+    </div>
+    <!-- Heading -->
+    <div class="mb-8">
+      <div class="flex items-center justify-center gap-4 mb-4 opacity-70">
+        <div class="h-px w-16 bg-gold"></div>
+        <p class="font-lato text-gold uppercase text-sm font-bold" style="letter-spacing:.3em">Thank You</p>
+        <div class="h-px w-16 bg-gold"></div>
+      </div>
+      <h1 class="font-playfair text-ivory font-bold leading-tight drop-shadow-xl" style="font-size:3.75rem">
+        Let's Celebrate <br/><span class="text-gold" style="font-style:italic">Culture Together</span>
+      </h1>
+    </div>
+    <!-- Message -->
+    <div class="mb-12 max-w-2xl mx-auto">
+      <p class="font-lato text-gray-200 text-lg leading-relaxed">
+        Partner with <span class="text-gold font-bold">Swaras 2026</span> and support a movement that preserves Indian classical heritage while empowering young talent.
+      </p>
+    </div>
+    <!-- Contact card -->
+    <div class="contact-card p-10 rounded-lg w-full max-w-3xl flex items-center justify-between gap-8 mb-10">
+      <div class="text-left border-r border-gold pr-8" style="width:33%;border-color:rgba(212,175,55,.3)">
+        <h3 class="font-playfair text-3xl text-gold font-bold mb-1">Shruti Raja</h3>
+        <p class="font-lato text-ivory text-sm uppercase tracking-wider opacity-80">Founder</p>
+        <p class="font-lato text-gray-400 text-xs mt-1">Shrutii Nrityalaya</p>
+      </div>
+      <div class="text-left flex-1 space-y-4">
+        <div class="flex items-center group">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center border mr-4 text-gold" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.3)"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <p class="font-lato text-gray-400 text-xs uppercase tracking-wide mb-0.5">Call Us</p>
+            <p class="font-lato text-xl text-ivory font-bold">90289 43644</p>
+          </div>
+        </div>
+        <div class="flex items-center group">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center border mr-4 text-gold" style="background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.3)"><i class="fas fa-envelope"></i></div>
+          <div>
+            <p class="font-lato text-gray-400 text-xs uppercase tracking-wide mb-0.5">Email Us</p>
+            <p class="font-lato text-xl text-ivory font-bold">shrutiinrityalaya@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Big logo -->
+    <div class="mb-4">
+      <div class="bg-white p-4 rounded-full shadow-2xl border-2 border-gold h-24 w-24 flex items-center justify-center mx-auto">
+        <img alt="Logo" class="h-16 w-auto object-contain" src="C:\Users\Manushree Shah\Downloads\images.jpg"/>
+      </div>
+    </div>
+    <p class="font-lato text-xs uppercase mt-2" style="color:rgba(212,175,55,.4);letter-spacing:.2em">Preserving Arts • Nurturing Talent</p>
+  </div>
+  <!-- Bottom strip -->
+  <div class="absolute bottom-0 w-full h-2 bg-gold opacity-60"></div>
+</div>
+
+</body>
+</html>
